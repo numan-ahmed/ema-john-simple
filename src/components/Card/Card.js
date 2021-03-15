@@ -2,12 +2,13 @@ import React from 'react';
 
 const Card = (props) => {
     const card = props.card;
-    console.log(card);
+    // console.log(card);
     // const total = card.reduce((total,prd) => total + prd.price,0)
     let total = 0;
     for (let i = 0; i < card.length; i++) {
         const product = card[i];
-        total = total + product.price;
+        total = total + product.price * product.quantity;
+               
     }
     let shipping = 0;
     if(total>35){
@@ -33,6 +34,10 @@ const formatNumber = num =>{
             <p><small>Shipping Cost: {shipping}</small></p>
             <p><small>Tax + VAT: {formatNumber(tax)}</small></p>
             <p>Total Price: {grandTotal}</p>
+            <br/>
+            {
+                props.children
+            }
         </div>
     );
 };

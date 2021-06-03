@@ -4,11 +4,11 @@ const Card = (props) => {
     const card = props.card;
     // console.log(card);
     // const total = card.reduce((total,prd) => total + prd.price,0)
+    // const sum = card.reduce((sum,product) => sum + product.price, 0)
     let total = 0;
     for (let i = 0; i < card.length; i++) {
         const product = card[i];
-        total = total + product.price * product.quantity;
-               
+        total = total + product.price * product.quantity;         
     }
     let shipping = 0;
     if(total>35){
